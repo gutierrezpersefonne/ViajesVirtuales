@@ -1,0 +1,811 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --navy: #102744;
+    --navy-deep: #0a1b31;
+    --blue: #315d88;
+    --sky: #dceaf6;
+    --cream: #fbf7f0;
+    --paper: #ffffff;
+    --sand: #f5c184;
+    --sand-deep: #e7a65f;
+    --ink: #203047;
+    --muted: #667386;
+    --line: #e6e8eb;
+    --shadow: 0 12px 32px rgba(16, 39, 68, .10);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--cream);
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    display: block;
+    height: auto;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+
+a:hover {
+    color: var(--sand-deep);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--sand-deep);
+    outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--navy);
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.2;
+}
+
+p {
+    margin-top: 0;
+}
+
+
+header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 20px clamp(22px, 5vw, 76px);
+    color: white;
+    background: var(--navy-deep);
+    box-shadow: 0 5px 18px rgba(10, 27, 49, .12);
+}
+
+header h1 {
+    flex: 0 0 auto;
+    margin: 0;
+    color: white;
+    font-size: clamp(1.35rem, 2vw, 1.85rem);
+    letter-spacing: -.03em;
+}
+
+
+header h1 .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+header h1 .brand:hover {
+    color: white;
+}
+
+header h1 .brand-mark {
+    display: inline-block;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    line-height: 1;
+    transition: transform .25s ease;
+}
+
+header h1 .brand:hover .brand-mark {
+    transform: translateX(3px) rotate(-8deg);
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+header nav a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: #f7f8fb;
+    font-size: .92rem;
+    font-weight: 600;
+}
+
+header nav a:hover {
+    color: white;
+    background: rgba(255, 255, 255, .12);
+}
+
+header > p {
+    position: absolute;
+    left: clamp(22px, 5vw, 76px);
+    top: 100%;
+    margin: 0;
+}
+
+hr {
+    display: none;
+}
+
+
+.home-page header {
+    min-height: 410px;
+    align-items: flex-start;
+    padding-top: 22px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 25, 48, .91) 0%,
+            rgba(7, 25, 48, .62) 47%,
+            rgba(7, 25, 48, .10) 100%
+        ),
+        url('../destinos/imagenes/cadiz1.webp') center 48% / cover no-repeat;
+}
+
+.home-page header h1 {
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.home-page header > p {
+    top: 128px;
+    max-width: 620px;
+    color: white;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.8rem, 6vw, 5.6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    text-shadow: 0 3px 24px rgba(0, 0, 0, .18);
+}
+
+.home-page main {
+    max-width: 1240px;
+    margin: -1px auto 0;
+    padding: 0 28px 54px;
+}
+
+.home-page main > section:first-child {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 34px 24px 22px;
+    text-align: center;
+}
+
+.home-page main > section:first-child h2 {
+    margin: 0 0 8px;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.home-page main > section:first-child p {
+    margin: 0;
+    color: var(--muted);
+}
+
+
+.home-page #destinos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    padding-top: 12px;
+}
+
+.home-page #destinos > h2 {
+    grid-column: 1 / -1;
+    margin: 10px 0 2px;
+    text-align: center;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.home-page #destinos > h2::before {
+    content: '✈  ';
+    color: var(--blue);
+}
+
+.home-page #destinos article {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0 0 20px;
+    overflow: hidden;
+    border: 1px solid rgba(16, 39, 68, .07);
+    border-radius: 18px;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.home-page #destinos article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 38px rgba(16, 39, 68, .15);
+}
+
+.home-page #destinos article h3 {
+    margin: 20px 20px 6px;
+    font-size: 1.5rem;
+}
+
+.home-page #destinos article > a:first-of-type {
+    order: -1;
+}
+
+.home-page #destinos article img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.home-page #destinos article p {
+    margin: 14px 20px 22px;
+}
+
+.home-page #destinos article p a {
+    display: inline-block;
+    padding: 10px 19px;
+    border-radius: 999px;
+    color: white;
+    background: var(--navy);
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.home-page #destinos article p a:hover {
+    color: var(--navy);
+    background: var(--sand);
+}
+
+.home-page footer {
+    position: relative;
+    padding: 30px 24px;
+    color: white;
+    text-align: center;
+    background: var(--navy-deep);
+}
+
+.home-page footer p {
+    margin: 0;
+}
+
+
+/* ===== PÁGINAS DE DESTINO ===== */
+
+.destination-page main {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 22px;
+    max-width: 1280px;
+    margin: 46px auto 56px;
+    padding: 0 28px;
+    align-items: stretch;
+}
+
+/* --- A. Presentación: texto a la izquierda, imagen a la derecha --- */
+.destination-page main > h2 {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    margin: 0;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+}
+
+.destination-page main > h2 + p {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    margin: -14px 0 0;
+    color: var(--blue);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.destination-page main > img {
+    grid-column: 4 / 7;
+    grid-row: 1 / span 3;
+    align-self: stretch;
+    width: 100%;
+    min-height: 340px;
+    max-height: none;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+/* --- Tarjetas (estilo común) --- */
+.destination-page main > section {
+    min-width: 0;
+    padding: 25px 28px;
+    border: 1px solid rgba(16, 39, 68, .07);
+    border-radius: 17px;
+    background: var(--paper);
+    box-shadow: 0 7px 22px rgba(16, 39, 68, .055);
+}
+
+.destination-page main > section h3 {
+    margin: 0 0 13px;
+    font-size: 1.45rem;
+}
+
+.destination-page main > section p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Posición de cada sección --- */
+.destination-page .descripcion { grid-column: 1 / 4; grid-row: 3; }
+
+/* --- B. Información del viaje --- */
+.destination-page .sitios  { grid-column: 1 / 4;  grid-row: 4; }
+.destination-page .estadia { grid-column: 4 / 7;  grid-row: 4; }
+.destination-page .precios { grid-column: 1 / -1; grid-row: 5; }
+
+/* --- C. Galería --- */
+.destination-page .galeria { grid-column: 1 / -1; grid-row: 6; }
+
+.destination-page .galeria img {
+    width: 100%;
+    height: clamp(200px, 26vw, 340px);
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+/* --- D. Video --- */
+.destination-page .video { grid-column: 1 / -1; grid-row: 7; }
+
+/* Detalles */
+.destination-page .precios strong {
+    color: var(--navy);
+}
+
+.destination-page ul {
+    padding-left: 22px;
+}
+
+.destination-page li {
+    padding-left: 3px;
+    margin: 5px 0;
+}
+
+.destination-page li::marker {
+    color: var(--sand-deep);
+}
+
+/* --- Tarjeta de estadía: número grande y centrado --- */
+.destination-page .estadia {
+    display: flex;
+    flex-direction: column;
+}
+
+.destination-page .estadia .duracion {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+}
+
+.destination-page .estadia .numero {
+    color: var(--blue);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.destination-page .estadia .unidad {
+    color: var(--muted);
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.destination-page .estadia .duracion::after {
+    content: "🕒";
+    margin-top: 10px;
+    font-size: 1.6rem;
+}
+
+/* --- Tarjeta de precios: etiqueta a la izquierda, monto a la derecha --- */
+.destination-page .lista-precios {
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+}
+
+.destination-page .lista-precios li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.destination-page .lista-precios .monto {
+    color: var(--navy);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.destination-page .lista-precios .total {
+    margin-top: 12px;
+    padding: 14px 18px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--sky);
+    color: var(--navy);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.destination-page .lista-precios .total .monto {
+    color: var(--blue);
+    font-size: 1.4rem;
+}
+
+.destination-page iframe {
+    display: block;
+    width: 100%;
+    min-height: 420px;
+    border: 0;
+    border-radius: 14px;
+    background: #e8edf2;
+}
+
+.destination-page > p:last-child {
+    max-width: 1180px;
+    margin: 0 auto 48px;
+    padding: 0 28px;
+}
+
+.destination-page > p:last-child a {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid var(--navy);
+    border-radius: 999px;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.destination-page > p:last-child a:hover {
+    color: white;
+    background: var(--navy);
+}
+
+
+/* ===== PÁGINA NOSOTROS ===== */
+
+.about-page main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 28px 60px;
+}
+
+.about-page main > section:first-child {
+    margin: 0 0 46px;
+    padding: 38px clamp(24px, 5vw, 66px);
+    border-radius: 22px;
+    color: white;
+    background:
+        linear-gradient(
+            120deg,
+            rgba(12, 37, 66, .97),
+            rgba(39, 89, 128, .91)
+        ),
+        url('../destinos/imagenes/japon1.jpg') center / cover;
+    box-shadow: var(--shadow);
+}
+
+.about-page main > section:first-child h2 {
+    margin: 0 0 14px;
+    color: white;
+    font-size: clamp(2.3rem, 4vw, 3.4rem);
+}
+
+.about-page main > section:first-child p {
+    max-width: 780px;
+    margin: 0;
+    color: #f0f5fa;
+    font-size: 1.05rem;
+}
+
+.about-page main > section:nth-child(2) > h2 {
+    margin: 0 0 28px;
+    text-align: center;
+    font-size: clamp(2rem, 3.5vw, 2.7rem);
+}
+
+
+.about-page main > section:nth-child(2) article {
+    display: inline-flex;
+    vertical-align: top;
+    flex-direction: column;
+    align-items: center;
+    width: calc(33.333% - 20px);
+    min-height: 420px;
+    margin: 0 8px 18px;
+    padding: 28px 22px;
+    border: 1px solid rgba(16, 39, 68, .06);
+    border-radius: 20px;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform .25s ease;
+}
+
+.about-page main > section:nth-child(2) article:hover {
+    transform: translateY(-5px);
+}
+
+.about-page article figure {
+    margin: 0 0 16px;
+}
+
+.about-page article img {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto;
+    border: 5px solid #e6f0f9;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--sky);
+}
+
+.about-page article figcaption {
+    margin-top: 12px;
+    color: var(--navy);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.about-page article h3 {
+    margin: 0 0 10px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    color: var(--navy);
+    background: var(--sky);
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+}
+
+.about-page article p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+
+/* ===== PIE DE PÁGINA (destinos y nosotros): mismo color que el del inicio ===== */
+
+.destination-page footer,
+.about-page footer {
+    padding: 30px 24px 38px;
+    color: white;
+    text-align: center;
+    background: var(--navy-deep);
+}
+
+.destination-page footer p:first-child,
+.about-page footer p:first-child {
+    margin: 0;
+    color: white;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.destination-page footer p:last-child,
+.about-page footer p:last-child {
+    margin: 14px 0 0;
+}
+
+.destination-page footer a,
+.about-page footer a {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid white;
+    border-radius: 999px;
+    color: white;
+    background: transparent;
+    font-weight: 700;
+}
+
+/* Al pasar el cursor o seleccionar: fondo blanco y letras azules */
+.destination-page footer a:hover,
+.destination-page footer a:focus,
+.destination-page footer a:active,
+.about-page footer a:hover,
+.about-page footer a:focus,
+.about-page footer a:active {
+    color: var(--blue);
+    background: white;
+}
+
+
+/* ===== TABLET ===== */
+
+@media (max-width: 850px) {
+    header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .home-page header {
+        min-height: 390px;
+    }
+
+    .home-page header > p {
+        top: 145px;
+    }
+
+    .home-page #destinos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-page main > section:nth-child(2) article {
+        width: calc(50% - 18px);
+    }
+
+    .destination-page main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .destination-page main > h2,
+    .destination-page main > h2 + p,
+    .destination-page main > img,
+    .destination-page .descripcion,
+    .destination-page .galeria,
+    .destination-page .video,
+    .destination-page .precios {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .destination-page .sitios  { grid-column: 1; grid-row: auto; }
+    .destination-page .estadia { grid-column: 2; grid-row: auto; }
+
+    .destination-page main > img {
+        min-height: 0;
+        height: 320px;
+    }
+}
+
+/* ===== TELÉFONOS ===== */
+
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 18px 20px;
+    }
+
+    header nav {
+        gap: 3px;
+    }
+
+    header nav a {
+        padding: 7px 9px;
+        font-size: .85rem;
+    }
+
+    .home-page header {
+        min-height: 360px;
+        background-position: center;
+    }
+
+    .home-page header > p {
+        top: 142px;
+        right: 18px;
+        font-size: 3rem;
+    }
+
+    .home-page main {
+        padding: 0 16px 36px;
+    }
+
+    .home-page main > section:first-child {
+        padding: 28px 8px 18px;
+    }
+
+    .home-page #destinos {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .home-page #destinos article {
+        width: 100%;
+        margin: 0 0 18px;
+    }
+
+    .home-page #destinos article img {
+        height: 220px;
+    }
+
+    .about-page main > section:nth-child(2) article {
+        display: flex;
+        width: 100%;
+        margin: 0 0 18px;
+    }
+
+    .destination-page main {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin: 28px auto 38px;
+        padding: 0 16px;
+    }
+
+    .destination-page main > h2 {
+        font-size: 2.3rem;
+    }
+
+    .destination-page main > h2 + p {
+        margin-top: -12px;
+    }
+
+    .destination-page main > img {
+        order: 0;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-height: 320px;
+        object-fit: cover;
+    }
+
+    .destination-page .galeria img {
+        height: 200px;
+    }
+
+    .destination-page main > section {
+        width: 100%;
+        padding: 22px;
+    }
+
+    .destination-page iframe {
+        min-height: 240px;
+    }
+
+    .destination-page > p:last-child {
+        padding: 0 16px;
+    }
+
+    .about-page main {
+        padding: 28px 16px 38px;
+    }
+
+    .about-page main > section:first-child {
+        padding: 28px 22px;
+        margin-bottom: 34px;
+    }
+
+    .about-page article img {
+        width: 155px;
+        height: 155px;
+    }
+}
